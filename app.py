@@ -1,7 +1,6 @@
 from flask import Flask,redirect,request,render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import random 
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
@@ -23,7 +22,7 @@ class Todo(db.Model):
 
 @app.route('/',methods=['GET',"POST"])
 def hello_world(): 
-    if request.method == "POST":
+    if request.method == "POST" and request.form["title"]:
         title = request.form["title"]
         desc= request.form["desc"]
         todo = Todo(title=title,desc=desc)

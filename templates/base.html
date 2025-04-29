@@ -72,5 +72,13 @@
       </div>
     </nav>
     {% block body %} {% endblock body %}
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/test.js') }}"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/test.css') }}"
+    />
   </body>
 </html>
